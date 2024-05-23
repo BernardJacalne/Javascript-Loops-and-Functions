@@ -1,0 +1,43 @@
+class NFT:
+    total_supply = 0
+
+    def __init__(self, name, description, owner):
+        self.name = name
+        self.description = description
+        self.owner = owner
+        NFT.total_supply += 1
+
+    def __str__(self):
+        return f"Name: {self.name}\nDescription: {self.description}\nOwner: {self.owner}"
+
+class NFTCollection:
+    def __init__(self):
+        self.nfts = []
+ 
+
+  
+    def mint_nft(self, name, description, owner):
+        new_nft = NFT(name, description, owner)
+        self.nfts.append(new_nft)
+
+    def print_nfts_details(self):
+        for nft in self.nfts:
+            print(nft)
+            print("")
+
+    def print_total_supply(self):
+        print(f"Total Supply: {NFT.total_supply}")
+
+# Example usage
+if __name__ == "__main__":
+    my_collection = NFTCollection()
+
+    my_collection.mint_nft("NFT1", "First NFT", "Owner1")
+    my_collection.mint_nft("NFT2", "Second NFT", "Owner2")
+    my_collection.mint_nft("NFT3", "Third NFT", "Owner3")
+
+    print("Printing NFT details:")
+    my_collection.print_nfts_details()
+
+    print("Printing total supply:")
+    my_collection.print_total_supply()
